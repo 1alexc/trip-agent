@@ -1,6 +1,6 @@
 from google.adk.agents.llm_agent import Agent
-from travel_sub_agent import travel_sub_agent
-from weather_agent import weather_agent
+from travel_sub_agent.agent import travel_sub_agent
+from weather_agent.agent import weather_agent
 
 root_agent = Agent(
     model="gemini-2.5-flash",
