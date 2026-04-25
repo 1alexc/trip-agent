@@ -1,18 +1,13 @@
 from google.adk.agents import Agent
-from datetime import datetime
-
-def now() -> dict:
-    """Returns the current date and time."""
-    my_datetime = datetime.now()
-    return {
-        "status": "success",
-        "current_time": str(my_datetime)
-    }
+from google.adk.tools import google_search
 
 root_agent = Agent(
-    name="travel_basic",
+    name="travel_agent",
     model="gemini-2.5-flash",
-    instruction="You are a helpful travel assistant."
-    + " You can help with general travel advice based on your knowledge.",
-    tools=[now]
+    tools=[google_search],
+    instruction="""You are a travel agent.
+Your job is to help the user plan a trip.
+You have access to a search engine.
+If you don't know the answer, you can use the search engine.
+When you are done, reply with "DONE".""",
 )
