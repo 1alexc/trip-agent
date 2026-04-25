@@ -1,8 +1,10 @@
-from google.adk.agents.llm_agent import Agent
+from google.adk.agents import Agent
 
 root_agent = Agent(
-    model='gemini-2.5-flash',
-    name='root_agent',
-    description='A helpful assistant for user questions.',
-    instruction='Answer user questions to the best of your knowledge',
+    name="root_agent",
+    model="gemini-2.5-flash",
+    instruction=(
+        "You are a helpful travel assistant. "
+        "You can help with general travel advice based on your knowledge."
+    ),
 )
