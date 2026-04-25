@@ -51,5 +51,6 @@ Help users with:
 - Packing suggestions
 
 Keep answers short and practical.
-"""
+""",
+    tools=[get_weather]
 )
