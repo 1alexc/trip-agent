@@ -1,0 +1,4 @@
+# To install and upgrade the packages listed here, run:
+# pip install --upgrade -r requirements.txt
+
+google-adk
