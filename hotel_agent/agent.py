@@ -35,13 +35,12 @@ airbnb_mcp = MCPToolset(
     )
 )
 
-
-root_agent = Agent(
-    name="travel_agent",
+hotel_agent = Agent(
+    name="hotel_agent",
     model="gemini-2.5-flash",
     tools=[now, airbnb_mcp],
     instruction="""
-You are a helpful travel agent.
+You are a helpful hotel agent.
 
 Your job is to help the user plan trips and find Airbnb stays.
 

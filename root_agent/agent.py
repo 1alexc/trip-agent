@@ -1,20 +1,39 @@
 from google.adk.agents.llm_agent import Agent
+#from google.adk.tools import google_search
+from datetime import datetime
 from travel_sub_agent.agent import travel_sub_agent
 from weather_agent.agent import weather_agent
+from hotel_agent.agent import hotel_agent
+
+#def now() -> dict:
+#    """Returns the current date and time."""
+#    my_datetime = datetime.now()
+#    return {
+#        "status": "success",
+#        "current_time": str(my_datetime)
+#    }
+
+#root_agent = Agent(
+#    model='gemini-2.5-flash',
+#    name='root_agent',
+#    description='A helpful assistant for user questions.',
+#    instruction='Answer user questions to the best of your knowledge',
+#    sub_agents=[travel_agent],
+
 
 root_agent = Agent(
     model="gemini-2.5-flash",
     name="root_agent",
-    description="Main router agent that sends tasks to sub-agents.",
+    description="Main agent that routes tasks to sub-agents",
     instruction="""
 You are the main assistant.
 
-Route user requests:
+You decide which sub-agent should handle the user request:
 
-- If user asks about travel, trips, flights → use travel_agent
-- If user asks about weather, temperature, forecast → use weather_agent
+- If the request is about travel, use travel_agent
+- Otherwise answer directly or route accordingly
 
-If unsure, respond directly.
+Be smart in routing user queries.
 """,
-    sub_agents=[travel_sub_agent, weather_agent]
+    sub_agents=[travel_sub_agent, weather_agent, hotel_agent]
 )
