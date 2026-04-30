@@ -4,6 +4,7 @@ from datetime import datetime
 from travel_sub_agent.agent import travel_sub_agent
 from weather_agent.agent import weather_agent
 from hotel_agent.agent import hotel_agent
+from flight_agent.agent import flight_agent
 
 #def now() -> dict:
 #    """Returns the current date and time."""
