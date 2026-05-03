@@ -5,6 +5,7 @@ from travel_sub_agent.agent import travel_sub_agent
 from weather_agent.agent import weather_agent
 from hotel_agent.agent import hotel_agent
 from flight_agent.agent import flight_agent
+from itinerary_agent.agent import itinerary_agent
 
 #def now() -> dict:
 #    """Returns the current date and time."""
@@ -27,14 +28,21 @@ root_agent = Agent(
     name="root_agent",
     description="Main agent that routes tasks to sub-agents",
     instruction="""
-You are the main assistant.
+You are a helpful travel agent.
 
-You decide which sub-agent should handle the user request:
+Your job is to help the user plan trips, find flights, Airbnb stays, and create itineraries.
 
-- If the request is about travel, use travel_agent
-- Otherwise answer directly or route accordingly
+Available specialists:
+- flight_agent for flights
+- stay_agent for Airbnb stays
+- itinerary_agent for trip plans
 
-Be smart in routing user queries.
+Rules:
+- Delegate to the correct specialist based on the user's request.
+- If the user asks for a complete trip, help with flights, stay, and itinerary.
+- If the user has not provided enough details, ask one short follow-up question.
+- Keep answers simple and helpful.
+- When finished, reply with "DONE".
 """,
-    sub_agents=[travel_sub_agent, weather_agent, hotel_agent]
+    sub_agents=[travel_sub_agent, weather_agent, hotel_agent, flight_agent, itinerary_agent]
 )
