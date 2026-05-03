@@ -34,7 +34,7 @@ Your job is to help the user plan trips, find flights, Airbnb stays, and create 
 
 Available specialists:
 - flight_agent for flights
-- stay_agent for Airbnb stays
+- hotel_agent for Airbnb stays
 - itinerary_agent for trip plans
 
 Rules:
